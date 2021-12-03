@@ -11,11 +11,8 @@ class HomeController extends Controller {
 
   async webhook() {
     const {ctx} = this;
-    console.log(ctx.request.body)
     fs.writeFile('./public/log.txt', JSON.stringify(ctx.request.body), () => {})
-    ctx.body = {
-      success: true
-    }
+    ctx.body = ctx.request.body
   }
 }
 
