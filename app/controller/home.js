@@ -11,6 +11,9 @@ class HomeController extends Controller {
 
   async webhook() {
     const {ctx} = this;
+    console.log('============ receive msg =========')
+    console.log(ctx.request.body)
+    console.log('============ receive msg =========')
     fs.writeFile('./public/log.txt', JSON.stringify(ctx.request.body), () => {})
     ctx.body = ctx.request.body
   }
